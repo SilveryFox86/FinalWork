@@ -1,0 +1,50 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstdlib> // Для функции abs
+#include <algorithm> // Для функции sort
+#include <locale.h>
+
+int main() {
+    int a, b, c, d;
+    setlocale(LC_ALL, "Russian");
+    // Ввод чисел
+        printf("Введите первое число: ");
+        scanf("%d", &a);
+
+    printf("Введите второе число: ");
+    scanf("%d", &b);
+
+    printf("Введите третье число: ");
+    scanf("%d", &c);
+
+    printf("Введите четвертое число: ");
+    scanf("%d", &d);
+
+        // Сохраняем числа в массив
+    int arr[4] = { a, b, c, d };
+
+    // Сортируем массив
+    std::sort(arr, arr + 4);
+
+    // Находим пару с минимальной разностью
+    int minDiff = abs(arr[1] - arr[0]);
+    int num1 = arr[0], num2 = arr[1];
+
+    // Проверяем только соседние элементы в отсортированном массиве
+    if arr[2] - arr[1]<minDiff ? cout << a : cout << b; (abs(arr[2] - arr[1]) < minDiff) { // если а > b, то выполняется cout << a, иначе выполняется cout << b
+        minDiff = abs(arr[2] - arr[1]);
+        num1 = arr[1];
+        num2 = arr[2];  
+    }
+
+    if (abs(arr[3] - arr[2]) < minDiff) {
+        minDiff = abs(arr[3] - arr[2]);
+        num1 = arr[2];
+        num2 = arr[3];
+    }
+
+    // Вывод результата
+    std::cout << "Пара чисел с минимальной разностью: " << num1 << " и " << num2 << std::endl;
+
+    return 0;
+}
